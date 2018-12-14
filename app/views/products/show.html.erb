@@ -20,12 +20,13 @@
 
 <div class="container">
   <ul>
-  <% @reviews.each do |review| %>
-    <% if @product.id == review.id %>
-      <li><%= review.author %></li>
-      <li><%= review.rating %></li>
-      <li><%= review.content_body %></li>
+    <% @reviews.each do |review| %>
+
+      <% if @product.id == review.product_id %>
+        <li><%= review.author %></li>
+        <li><%= review.rating %></li>
+        <li><%= review.content_body %></li>
       <% end %>
-  <% end %>
-</ul>
+    <% end %>
+  </ul>
 </div>
