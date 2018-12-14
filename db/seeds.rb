@@ -7,21 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-# 50.times do
-#   product = Product.create(
-#     name: Faker::Zelda.game,
-#     cost: Faker::Number.decimal(l_digits = 2, r_digits = 2),
-#     country_of_origin: Faker::Address.country_code
-#   )
-#   product.save
-#
-# end
-
-250.times do
-  review = Review.create(
-    author: Faker::Zelda.character,
-    content_body: Faker::Lorem.paragraph_by_chars(chars = 256, supplemental = false),
-    rating: Faker::Number.between(from = 1, to = 5)
+50.times do
+  product = Product.create(
+    name: Faker::Zelda.game,
+    cost: Faker::Number.decimal(l_digits = 2, r_digits = 2),
+    country_of_origin: Faker::Address.country_code
   )
-  review.save
+  product.save
+
+  5.times do
+    review = Review.create(
+      author: Faker::Zelda.character,
+      content_body: Faker::Lorem.paragraph_by_chars(chars = 256, supplemental = false),
+      rating: Faker::Number.between(from = 1, to = 5),
+      product_id: product.id
+    )
+    review.save
+  end
 end
