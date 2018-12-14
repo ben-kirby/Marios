@@ -17,16 +17,21 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+<hr>
+<%= link_to 'Add Review', new_product_review_path(@product) %>
 
 <div class="container">
-  <ul>
     <% @reviews.each do |review| %>
 
       <% if @product.id == review.product_id %>
-        <li><%= review.author %></li>
-        <li><%= review.rating %></li>
-        <li><%= review.content_body %></li>
+      <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= review.rating %>/5</h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= review.author %></h6>
+    <p class="card-text"><%= review.content_body %></p>
+    </div>
+    </div>
+    <br>
       <% end %>
     <% end %>
-  </ul>
 </div>
