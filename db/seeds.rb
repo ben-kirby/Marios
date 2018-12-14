@@ -18,7 +18,7 @@ require 'faker'
   5.times do
     review = Review.create(
       author: Faker::Zelda.character,
-      content_body: Faker::Lorem.paragraph_by_chars(chars = 256, supplemental = false),
+      content_body: Faker::Lorem.paragraph_by_chars(chars = 100, supplemental = false),
       rating: Faker::Number.between(from = 1, to = 5),
       product_id: product.id
     )
