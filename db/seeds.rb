@@ -9,14 +9,15 @@ require 'faker'
 
 50.times do
   product = Product.create(
-    name: Faker::Zelda.game
-    cost: Faker::Number.between(from = 1.00, to = 100.00)
+    name: Faker::Zelda.game,
+    cost: Faker::Number.decimal(l_digits = 2, r_digits = 2),
     country_of_origin: Faker::Address.country_code
   )
+
   5.times do
     product.Review.create(
-      author: Faker::Zelda.character
-      content_body: Faker::Lorem.paragraph_by_chars(chars = 256, supplemental = false)
+      author: Faker::Zelda.character,
+      content_body: Faker::Lorem.paragraph_by_chars(chars = 256, supplemental = false),
       rating: Faker::Number.between(from = 1, to = 5)
     )
   end

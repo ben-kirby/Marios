@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.string :author
       t.string :content_body
       t.integer :rating
-      t.references :product, foreign_key: true
+      t.references :product_id, :integer
 
       t.timestamps
     end
