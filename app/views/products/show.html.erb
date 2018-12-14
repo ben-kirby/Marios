@@ -17,3 +17,15 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+<div class="container">
+  <ul>
+  <% @reviews.each do |review| %>
+    <% if @product.id == review.id %>
+      <li><%= review.author %></li>
+      <li><%= review.rating %></li>
+      <li><%= review.content_body %></li>
+      <% end %>
+  <% end %>
+</ul>
+</div>
