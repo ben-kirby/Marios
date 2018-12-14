@@ -2,6 +2,8 @@
 
 <h1>Products</h1>
 
+<%= paginate @products %>
+
 <table>
   <thead>
     <tr>
@@ -27,5 +29,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'Add New', new_product_path %>
